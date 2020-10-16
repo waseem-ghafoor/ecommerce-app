@@ -4,7 +4,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
   def self.up
     create_table :users do |t|
       t.string :name
-      t.string :type, default: "seller"
+      t.string :user_type, default: "buyer"
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
