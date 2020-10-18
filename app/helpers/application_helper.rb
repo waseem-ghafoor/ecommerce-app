@@ -5,5 +5,11 @@ module ApplicationHelper
     else
       link_to 'Login', new_user_session_path, class: 'nav-link'
     end
-  end  
+  end 
+  def add_product_button
+    link_to 'Add new product', new_product_path, class: 'nav-link' if account_seller_type?
+  end
+  def account_seller_type?
+    return current_user.present? && current_user.user_type == 'seller'   
+  end 
 end

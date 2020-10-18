@@ -1,19 +1,5 @@
 <h2>Add new product</h2>
 
-<%= form_for @product do |f| %>
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
+<%= render 'products/shared_form' %>
 
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
