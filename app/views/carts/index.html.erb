@@ -1,0 +1,30 @@
+<h1>Products Page</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.description %></td>
+        <td>
+          <%= link_to 'Show', product_path(product) %>
+          <%= link_to 'Destroy', cart_path(product),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }
+           %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

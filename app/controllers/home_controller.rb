@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	def index
-			
-	end
+  def index
+    @product = Product.published_products
+  end
 end

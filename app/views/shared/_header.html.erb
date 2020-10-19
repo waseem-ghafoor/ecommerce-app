@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home </a>
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -26,7 +26,10 @@
     </ul>
     <ul class="navbar-nav my-4 my-lg-0">
       <li class="nav-item">
-        <%= add_product_button %>
+        <%= account_seller_type? ? add_product_button : cart_button %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'My Products', products_path, class: 'nav-link' if account_seller_type? %>
       </li>
       <li class="nav-item">
         <%= login_button %>

@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
   
   def index
-    @products = Product.all
+    @products = current_user.products
   end
   
   def new
@@ -44,6 +44,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   def get_params
-    params.require(:product).permit(:name, :price, :description)
+    params["product"]["product_images"] = params["product"]["product_images"].first(3) if params["product"]["product_images"].present? 
+    params.require(:product).permit(:name, :price, :description, {product_images: []})
   end
 end

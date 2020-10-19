@@ -1,2 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>BUY Products</h1>
+
+<div class = 'row'>
+  <% @product.each do |product| %>
+    <div class= 'col-xs-3 p-5'>
+      <%= image_tag image_url(product), width: 200, height: 200 %>
+      <p><strong>Seller Name:</strong><%= product.user.name %></p>
+      <p><strong>Product Name:</strong><%= product.name %></p>
+      <p><strong>Product Price:</strong><%= product.price %></p>
+      <%= link_to 'Add to Chart', add_to_cart_path(product) if account_buyer_type? %>
+    </div>
+    
+  <% end %> 
+</div>
